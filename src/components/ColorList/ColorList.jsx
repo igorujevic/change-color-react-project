@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { css } from 'emotion';
 
 import { AppContext } from '../../AppContext';
 import Color from './Color';

@@ -2,8 +2,8 @@ import React from 'react';
 
 import './App.css';
 import ButtonColorPicker from './components/ButtonColorPicker/ButtonColorPicker';
-import ShowText from './components/ShowText/ShowText';
-import InputText from './components/InputText/InputText';
+// import ShowText from './components/ShowText/ShowText';
+// import InputText from './components/InputText/InputText';
 
 import { getData } from './api/index';
 
@@ -32,9 +32,14 @@ class App extends React.Component {
   render() {
     return (
       <AppProvider>
-        <div className="App">
-          <ButtonColorPicker />
-          <ColorList />
+        <div className="app-container">
+          <div className="color-container">
+            <ButtonColorPicker />
+            <ColorList />
+          </div>
+          <div className="text-container">
+            <h1>Write..</h1>
+          </div>
         </div>
       </AppProvider>
     );

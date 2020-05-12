@@ -41,11 +41,12 @@ const ButtonColorPicker = (props) => {
     <div>
       <button
         className={css`
-          padding: 32px;
+          padding: 5px;
+          background-color: #333;
           font-size: 24px;
           font-weight: 600;
-          border-radius: 4px;
-          color: ${color};
+          border-radius: 10px;
+          color: ${color ? color : 'white'};
           cursor: pointer;
         `}
         onClick={addColor}

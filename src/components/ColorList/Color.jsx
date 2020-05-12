@@ -6,7 +6,8 @@ const Color = ({ color }) => {
     <div>
       <h3
         className={css`
-          font-size: 24px;
+          font-size: 18px;
+          margin: 0px 0px;
           font-weight: 600;
           color: ${color};
         `}
