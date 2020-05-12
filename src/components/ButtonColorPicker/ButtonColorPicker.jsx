@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { css } from 'emotion';
+import axios from 'axios';
 
-const ButtonColorPicker = ({ changeColor, textColor }) => {
-  let color = '#' + textColor;
+import { AppContext } from '../../AppContext';
+
+// const url = 'http://www.colr.org/json/color/random';
+
+const ButtonColorPicker = (props) => {
+  const [color, setColor] = useState('');
+  const [colors, setColors] = useContext(AppContext);
+
+  async function changeColor() {
+    try {
+      let response = await axios.get('http://www.colr.org/json/color/random');
+      let colorData = '#' + response.data.colors[0].hex;
+      setColor(colorData);
+      // return response.data.colors[0].hex;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const genHexColor = () => {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    randomColor = '#' + randomColor;
+    setColor(randomColor);
+  };
+
+  const addColor = () => {
+    genHexColor();
+    setColors((prevColors) => [
+      ...prevColors,
+      { color: color, id: Math.floor(Math.random() * 50000) },
+    ]);
+  };
+
   return (
     <div>
       <button
@@ -14,7 +46,7 @@ const ButtonColorPicker = ({ changeColor, textColor }) => {
           color: ${color};
           cursor: pointer;
         `}
-        onClick={() => changeColor()}
+        onClick={addColor}
       >
         GET COLOR
       </button>
