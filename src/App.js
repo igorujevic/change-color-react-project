@@ -8,6 +8,7 @@ import InputText from './components/InputText/InputText';
 import { getData } from './api/index';
 
 import { AppProvider } from './AppContext';
+import ColorList from './components/ColorList/ColorList';
 
 const url = 'http://www.colr.org/json/color/random';
 
@@ -33,6 +34,7 @@ class App extends React.Component {
       <AppProvider>
         <div className="App">
           <ButtonColorPicker />
+          <ColorList />
         </div>
       </AppProvider>
     );

@@ -10,6 +10,8 @@ const ButtonColorPicker = (props) => {
   const [color, setColor] = useState('');
   const [colors, setColors] = useContext(AppContext);
 
+  // ne koristim ovu funkciju jer link s kojeg se dohvaća boja nudi samo jednu random boju
+  // sve dok se ponovno ne refresha
   async function changeColor() {
     try {
       let response = await axios.get('http://www.colr.org/json/color/random');
@@ -31,7 +33,7 @@ const ButtonColorPicker = (props) => {
     genHexColor();
     setColors((prevColors) => [
       ...prevColors,
-      { color: color, id: Math.floor(Math.random() * 50000) },
+      { colorName: color, id: Math.floor(Math.random() * 50000) },
     ]);
   };
 
