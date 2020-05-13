@@ -8,7 +8,7 @@ import { AppContext } from '../../AppContext';
 
 const ButtonColorPicker = (props) => {
   const [color, setColor] = useState('');
-  const [colors, setColors] = useContext(AppContext);
+  const [, setColors] = useContext(AppContext);
 
   // ne koristim ovu funkciju jer link s kojeg se dohvaća boja nudi samo jednu random boju
   // sve dok se ponovno ne refresha

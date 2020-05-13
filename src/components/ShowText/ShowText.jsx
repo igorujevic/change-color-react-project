@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-export default function ShowText({ inputData }) {
+import { WritingContext } from '../../WritingContext';
+
+import styles from './ShowText.module.css';
+
+export default function ShowText() {
+  const [write] = useContext(WritingContext);
   return (
     <div>
-      <h2>{inputData}</h2>
+      <textarea
+        maxLength="100"
+        rows="4"
+        cols="40"
+        placeholder={write ? write : 'Write down..'}
+        className={styles.textShow}
+      ></textarea>
     </div>
   );
 }

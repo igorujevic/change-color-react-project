@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { AppContext } from '../../AppContext';
 import Color from './Color';
 
 const ColorList = () => {
-  const [colors, setColors] = useContext(AppContext);
+  const [colors] = useContext(AppContext);
 
   return (
     <div>
